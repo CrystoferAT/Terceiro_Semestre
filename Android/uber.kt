@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -27,6 +28,7 @@ import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -72,6 +74,7 @@ fun TelaPerfil(){
                 .verticalScroll(rememberScrollState())
         ) {
             MenuPerfil()
+            MenuSecundario()
         }
     }
 }
@@ -242,35 +245,36 @@ fun RodaPe(){
 
 //@Preview(showBackground = true)
 @Composable
-fun MenuPerfil(){
+fun MenuPerfil() {
 
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .height(600.dp)
-        .padding(10.dp),
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(1000.dp)
+            .padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Top
     )
     {
 
-        Row (
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(100.dp),
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
         )
         {
             Card(
                 modifier = Modifier.size(100.dp),
 
-                ){
-                Column (
+                ) {
+                Column(
                     modifier = Modifier
                         .fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
-                ){
+                ) {
                     Icon(
                         imageVector = Icons.Default.Call,
                         contentDescription = "",
@@ -282,9 +286,9 @@ fun MenuPerfil(){
 
             Spacer(modifier = Modifier.padding(10.dp))
 
-            Card (
+            Card(
                 modifier = Modifier.size(100.dp)
-                 )
+            )
             {
                 Column(
                     modifier = Modifier
@@ -295,16 +299,21 @@ fun MenuPerfil(){
                     Icon(
                         imageVector = Icons.Default.Menu,
                         contentDescription = "",
-                        )
+                    )
                     Text("Carteira")
-                    }
+                }
             }
 
-            Spacer(modifier = Modifier.padding(10.dp))
+            Spacer(
+                modifier = Modifier
+                    .padding(10.dp)
+            )
 
-            Card (
-                modifier = Modifier.size(100.dp)){
-                Column (
+            Card(
+                modifier = Modifier
+                    .size(100.dp)
+            ) {
+                Column(
                     modifier = Modifier
                         .fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -314,8 +323,7 @@ fun MenuPerfil(){
                     Icon(
                         imageVector = Icons.Default.Email,
                         contentDescription = "",
-
-                        )
+                    )
                     Text("Mensagem")
                 }
             }
@@ -323,64 +331,250 @@ fun MenuPerfil(){
 
         Spacer(modifier = Modifier.padding(10.dp))
 
-        Row (
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(100.dp),
-
-        ){
-            Card (
+        )
+        {
+            Card(
                 modifier = Modifier
                     .fillMaxSize(),
 
-            ){
-                Column (
+                ) {
+
+                Column(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(5.dp),
                     //horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center){
-                    Text("Ride Pass")
-                    Spacer(modifier = Modifier.padding(5.dp))
-                    Text("Save on routine rides")
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Row {
+                        Column(
+                            modifier = Modifier
+                                .width(250.dp)
+                                .fillMaxSize()
+                                .padding(10.dp),
+                            verticalArrangement = Arrangement.Center
+                        ) {
+                            Text("Ride Pass")
+                            Spacer(modifier = Modifier.padding(5.dp))
+                            Text("Save on routine rides")
+
+                        }
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Email,
+                                contentDescription = "",
+                            )
+                        }
+                    }
                 }
             }
         }
 
         Spacer(modifier = Modifier.padding(10.dp))
 
-        Row (
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(100.dp),
-        ){
-            Card (
-                modifier = Modifier.fillMaxSize()
-            ){  }
+        )
+        {
+            Card(
+                modifier = Modifier
+                    .fillMaxSize(),
+
+                ) {
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(5.dp),
+                    //horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Row {
+                        Column(
+                            modifier = Modifier
+                                .width(250.dp)
+                                .fillMaxSize()
+                                .padding(10.dp),
+                            verticalArrangement = Arrangement.Center
+                        ) {
+                            Text("Try Uber One free")
+                            Spacer(modifier = Modifier.padding(5.dp))
+                            Text("Unlock 10% Uber One credits on rides and more")
+
+                        }
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Email,
+                                contentDescription = "",
+                            )
+                        }
+                    }
+                }
+            }
         }
 
         Spacer(modifier = Modifier.padding(10.dp))
 
-        Row (
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(100.dp),
-        ){
-            Card (
-                modifier = Modifier.fillMaxSize()
-            ){  }
+        )
+        {
+            Card(
+                modifier = Modifier
+                    .fillMaxSize(),
+
+                ) {
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(5.dp),
+                    //horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Row {
+                        Column(
+                            modifier = Modifier
+                                .width(250.dp)
+                                .fillMaxSize()
+                                .padding(10.dp),
+                            verticalArrangement = Arrangement.Center
+                        ) {
+                            Text("Safety Checkup")
+                            Spacer(modifier = Modifier.padding(5.dp))
+                            Text("Learn ways to make rides safer")
+
+                        }
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Email,
+                                contentDescription = "",
+                            )
+                        }
+                    }
+                }
+            }
         }
 
         Spacer(modifier = Modifier.padding(10.dp))
 
-        Row (
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(100.dp),
-        ){
-            Card (
-                modifier = Modifier.fillMaxSize()
-            ){  }
+                .height(70.dp),
+        )
+        {
+            Card(
+                modifier = Modifier
+                    .fillMaxSize(),
+
+                ) {
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(5.dp),
+                    //horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Row {
+                        Column(
+                            modifier = Modifier
+                                .width(250.dp)
+                                .fillMaxSize()
+                                .padding(10.dp),
+                            verticalArrangement = Arrangement.Center
+                        ) {
+                            Text("Estimated CO2 saved")
+                        }
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Email,
+                                contentDescription = "",
+                            )
+                        }
+                    }
+                }
+            }
         }
+    }
+}
+
+@Preview
+@Composable
+fun MenuSecundario(){
+    Column (
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(1000.dp),
+    ){
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(70.dp),
+            colors = CardDefaults.cardColors(
+                //containerColor = Color.Transparent,
+            )
+        ){
+            Row (
+                modifier = Modifier
+                            .fillMaxWidth()
+                            .fillMaxHeight()
+            ){
+                Column (
+                    modifier = Modifier
+                        .size(50.dp)
+                        .padding(10.dp),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+
+
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Person,
+                        contentDescription = "",
+                    )
+                }
+                Column (
+                    modifier = Modifier
+                        .width(70.dp)
+                        .fillMaxHeight()
+                        .padding(20.dp),
+                    verticalArrangement = Arrangement.Center
+
+                ){
+                    Text("Teste")
+                }
+            }
+        }
+
     }
 }
