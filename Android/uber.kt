@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,14 +20,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -40,7 +37,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -62,6 +58,13 @@ class MainActivity : ComponentActivity() {
 @Preview
 @Composable
 fun TelaPerfil(){
+
+    val listaDeTitulos = listOf(
+        "Texto 01",
+        "Texto 02",
+        "Texto 03"
+    )
+
     Scaffold(
         modifier = Modifier
             .padding(10.dp),
@@ -74,7 +77,7 @@ fun TelaPerfil(){
                 .verticalScroll(rememberScrollState())
         ) {
             MenuPerfil()
-            MenuSecundario()
+            MenuSecundario(titulos = listaDeTitulos)
         }
     }
 }
@@ -85,7 +88,9 @@ fun TelaPerfil(){
 fun Cabecalho(){
     Card (
         modifier = Modifier
-            .padding(15.dp)
+            .padding(15.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color.Transparent),
     ){
         Row (
             modifier = Modifier
@@ -168,8 +173,8 @@ fun RodaPe(){
         modifier = Modifier
             .height(75.dp)
             .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceAround,
-            verticalAlignment = Alignment.CenterVertically
+        horizontalArrangement = Arrangement.SpaceAround,
+        verticalAlignment = Alignment.CenterVertically
     ){
 
         Column (
@@ -250,7 +255,7 @@ fun MenuPerfil() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .height(1000.dp)
+            .height(570.dp)
             .padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
@@ -261,7 +266,8 @@ fun MenuPerfil() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(100.dp),
-            horizontalArrangement = Arrangement.Center,
+            horizontalArrangement = Arrangement.SpaceBetween,
+
             verticalAlignment = Alignment.CenterVertically
         )
         {
@@ -528,13 +534,13 @@ fun MenuPerfil() {
     }
 }
 
-@Preview
+//@Preview
 @Composable
-fun MenuSecundario(){
+fun MenuSecundario(titulos: List<String>){
     Column (
         modifier = Modifier
             .fillMaxWidth()
-            .height(1000.dp),
+            .height(570.dp),
     ){
         Card(
             modifier = Modifier
@@ -546,15 +552,16 @@ fun MenuSecundario(){
         ){
             Row (
                 modifier = Modifier
-                            .fillMaxWidth()
-                            .fillMaxHeight()
+                    .fillMaxWidth()
+                    .fillMaxHeight(),
+                    verticalAlignment = Alignment.CenterVertically
             ){
                 Column (
                     modifier = Modifier
                         .size(50.dp)
                         .padding(10.dp),
                     verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
+                   horizontalAlignment = Alignment.CenterHorizontally
 
 
                 ) {
@@ -565,13 +572,14 @@ fun MenuSecundario(){
                 }
                 Column (
                     modifier = Modifier
-                        .width(70.dp)
-                        .fillMaxHeight()
-                        .padding(20.dp),
+                        .fillMaxWidth()
+                        .fillMaxHeight(),
                     verticalArrangement = Arrangement.Center
 
                 ){
-                    Text("Teste")
+                    titulos.forEach { titulo ->
+                        Text(text = titulo)
+                    }
                 }
             }
         }
