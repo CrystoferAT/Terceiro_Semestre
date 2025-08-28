@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -114,7 +115,7 @@ fun TelaCard() {
 
 @Preview
 @Composable
-fun MenuServices(){
+fun MenuServices() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -122,124 +123,151 @@ fun MenuServices(){
             .padding(10.dp)
     ) {
 
-        Row (modifier = Modifier
-            .fillMaxWidth()
-            .height(100.dp),
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(100.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
 
-            Column (modifier = Modifier
-                .size(180.dp)
+
+            Column(
+                modifier = Modifier
+                    .size(180.dp)
             ) {
-                Card (modifier = Modifier
-                    .fillMaxSize()
-                ){  }
+                Card(
+                    modifier = Modifier
+                        .fillMaxSize()
+                ) { }
             }
 
-            Spacer(modifier = Modifier
-                .padding(horizontal = 6.dp))
-
-            Column (modifier = Modifier
-                .size(180.dp)
-            )  {
-                Card (modifier = Modifier
-                    .fillMaxSize()
-                ) {  }
-            }
-        }
-
-        Spacer(modifier = Modifier
-            .padding(vertical = 6.dp))
-
-        Row (modifier = Modifier
-            .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-
-            Column (modifier = Modifier
-                .size(85.dp)
-            ) {
-                Card (modifier = Modifier
-                    .fillMaxSize()
-                )  {  }
-            }
-
-
-            Column (modifier = Modifier
-                .size(85.dp)
-            )  {
-                Card (modifier = Modifier
-                    .fillMaxSize()
-                )  {  }
-            }
-
-
-            Column (modifier = Modifier
-                .size(85.dp)
-            ) {
-                Card (modifier = Modifier
-                    .fillMaxSize()
-                )  {  }
-            }
-
-
-
-            Column(modifier = Modifier
-                .size(85.dp)
-            )  {
-                Card(modifier = Modifier
-                    .fillMaxSize()
-                )   {  }
-            }
-        }
-    }
-}
-
-@Preview
-@Composable
-fun MenuBaixo(){
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(200.dp)
-            .padding(10.dp)
-    ) {
-        Row (modifier = Modifier
-            .fillMaxWidth()
-        ) {
-            Text(
-                "Get Courier to help",
-                style = MaterialTheme.typography.bodyLarge
+            Spacer(
+                modifier = Modifier
+                    .padding(horizontal = 6.dp)
             )
+
+            Column(
+                modifier = Modifier
+                    .size(180.dp)
+            ) {
+                Card(
+                    modifier = Modifier
+                        .fillMaxSize()
+                ) { }
+            }
         }
 
-        Spacer(modifier = Modifier
-            .padding(vertical = 10.dp))
-        Row (modifier = Modifier
-            .fillMaxWidth()
-            .height(100.dp),
+        Spacer(
+            modifier = Modifier
+                .padding(vertical = 6.dp)
+        )
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
 
-            Column (modifier = Modifier
-                .size(180.dp)
+            Column(
+                modifier = Modifier
+                    .size(85.dp)
             ) {
-                Card (modifier = Modifier
-                    .fillMaxSize()
-                ){  }
+                Card(
+                    modifier = Modifier
+                        .fillMaxSize()
+                ) { }
             }
 
-            Spacer(modifier = Modifier
-                .padding(horizontal = 6.dp))
-
-            Column (modifier = Modifier
-                .size(180.dp)
-            )  {
-                Card (modifier = Modifier
-                    .fillMaxSize()
-                ) {  }
+            Column(
+                modifier = Modifier
+                    .size(85.dp)
+            ) {
+                Card(
+                    modifier = Modifier
+                        .fillMaxSize()
+                ) { }
             }
+
+            Column(
+                modifier = Modifier
+                    .size(85.dp)
+            ) {
+                Card(
+                    modifier = Modifier
+                        .fillMaxSize()
+                ) { }
+            }
+
+            Column(
+                modifier = Modifier
+                    .size(85.dp)
+            ) {
+                Card(
+                    modifier = Modifier
+                        .fillMaxSize()
+                ) { }
+            }
+
         }
     }
 }
+
+    //@Preview
+    @Composable
+    fun MenuBaixo() {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp)
+                .padding(10.dp)
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+            ) {
+                Text(
+                    "Get Courier to help",
+                    style = MaterialTheme.typography.bodyLarge
+                )
+            }
+
+            Spacer(
+                modifier = Modifier
+                    .padding(vertical = 10.dp)
+            )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(100.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+
+                Column(
+                    modifier = Modifier
+                        .size(180.dp)
+                ) {
+                    Card(
+                        modifier = Modifier
+                            .fillMaxSize()
+                    ) { }
+                }
+
+                Spacer(
+                    modifier = Modifier
+                        .padding(horizontal = 6.dp)
+                )
+
+                Column(
+                    modifier = Modifier
+                        .size(180.dp)
+                ) {
+                    Card(
+                        modifier = Modifier
+                            .fillMaxSize()
+                    ) { }
+                }
+            }
+        }
+    }
+
 
