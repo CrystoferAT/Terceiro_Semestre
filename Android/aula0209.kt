@@ -29,8 +29,10 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -44,7 +46,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Crystofer0209Theme {
             }
-
+            TelaDeTarefas()
 
         }
     }
@@ -54,8 +56,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun TelaDeTarefas(){
 
-    val tarefas by remember {
-        mutableStateOf(listOf("1","2","3"))
+    val tarefas = remember {
+        mutableStateListOf<String>()
     }
 
     Scaffold {
@@ -72,7 +74,8 @@ fun TelaDeTarefas(){
                 modifier = Modifier
                     .height(5.dp)
             )
-            Formulario()
+            Formulario(aoAdicionar = { novaTarefa ->
+                tarefas.add(novaTarefa) })
             Spacer(
                 modifier = Modifier
                     .height(5.dp)
@@ -80,7 +83,10 @@ fun TelaDeTarefas(){
             LazyColumn {
                 items(tarefas){
                     tar ->
-                    Tarefa(tar)
+                    Tarefa(
+                        texto = tar,
+                        onDelete = { tarefas.remove(tar) }
+                        )
                     Spacer(
                         modifier = Modifier
                             .height(5.dp)
@@ -117,12 +123,12 @@ fun Cabecalho() {
             Column {
 
                 Text(
-                    text = "José Silveira",
+                    text = "Crystofer",
                     style = MaterialTheme.typography.headlineLarge
                 )
 
                 Text(
-                    text = "Melhor programador",
+                    text = "The best",
                     style = MaterialTheme.typography.bodySmall
                 )
 
@@ -138,13 +144,16 @@ fun Cabecalho() {
 
 //@Preview
 @Composable
-fun Formulario() {
+fun Formulario(aoAdicionar : (String) -> Unit) {
 
+    var textoImput by remember {
+        mutableStateOf("")
+    }
     Row {
 
         TextField(
-            value = "Olha la que legal",
-            onValueChange = { }
+            value = textoImput,
+            onValueChange = {textoImput = it }
         )
 
         Spacer(
@@ -153,7 +162,10 @@ fun Formulario() {
         )
 
         Button(
-            onClick = { }
+            onClick = {
+                aoAdicionar (textoImput)
+                textoImput = ""
+            }
         ) {
             Icon(
                 imageVector = Icons.Default.Add,
@@ -170,12 +182,14 @@ fun Formulario() {
 
 //@Preview
 @Composable
-fun Tarefa(texto: String = "Nova Tarefa") {
-
+fun Tarefa(texto: String , onDelete:() -> Unit) {
+    // onClick -> apagar
+    // onHold -> mudar
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(50.dp)
+            .height(50.dp),
+        onClick = onDelete
     ) {
 
         Row(
